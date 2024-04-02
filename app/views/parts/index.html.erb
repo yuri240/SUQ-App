@@ -1,0 +1,13 @@
+<main class="main">
+  <div class="inner">
+
+      <div class="greeting">
+        こんにちは、
+        <%#= link_to '#', class: :greeting__link %>
+        さん
+      </div>
+    <div class="card__wrapper">
+      <%= render partial: "prototype", collection: @prototypes %>
+    </div>
+  </div>
+</main>
