@@ -14,7 +14,7 @@
 |--------------------|------------|--------------------------------|
 | nickname           | string     | null: false                    |
 | song_part_id       | integer    | null: false                    |
-| song               | integer    | null: false, foreign_key: true |
+| song               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
@@ -25,7 +25,7 @@
 ## Songs Table
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
-| song_title         | references | null: false                    |
+| song_title         | string     | null: false                    |
 
 ### Association
 --has_many :parts
