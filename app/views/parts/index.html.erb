@@ -1,32 +1,38 @@
 <div class="container" style="margin-top: 80px;">
   <div class="row">
     <div class="col-md-10">
-     <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>定期活動会参加者一覧</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Nickname</th>
-            <% @songs.each do |song| %>
-              <th scope="col"><%= song.song_title %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <% @parts.each do |part| %>
-            <tr>
-              <td><%= part.nickname %></td>
-              <td><%= SongPart.find_by(id: part.song_part_id_1)&.name || '-' %></td>
-              <td><%= SongPart.find_by(id: part.song_part_id_2)&.name || '-' %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>定期活動会参加者一覧</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nickname</th>
+                  <% @songs.each do |song| %>
+                    <th scope="col"><%= song.song_title %></th>
+                  <% end %>
+                </tr>
+              </thead>
+              <tbody>
+                <% @parts.each do |part| %>
+                  <tr>
+                    <td>
+                      <% if user_signed_in? && part.user_id == current_user.id %>
+                        <%= link_to part.nickname, edit_part_path(part) %>
+                      <% else %>
+                        <%= part.nickname %>
+                      <% end %>
+                    </td>
+                    <td><%= SongPart.find_by(id: part.song_part_id_1)&.name %></td>
+                    <td><%= SongPart.find_by(id: part.song_part_id_2)&.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-md-2 justify-content-end">
       <!-- ボタンの表示 -->

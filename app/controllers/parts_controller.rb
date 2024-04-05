@@ -7,7 +7,6 @@ class PartsController < ApplicationController
 
   def new
     @part = Part.new
-    @songs = Song.all
     @song_1 = @songs.first
     @song_2 = @songs.second
   end
@@ -23,6 +22,9 @@ class PartsController < ApplicationController
 
   def edit
     @part = Part.find(params[:id])
+    @songs = Song.all
+    @song_1 = @songs.first
+    @song_2 = @songs.second
   end
 
   def update
@@ -38,7 +40,6 @@ class PartsController < ApplicationController
     @part = Part.find(params[:id])
     @part.destroy
     redirect_to parts_path
-    flash[:notice] = "ニックネームと曲が削除されました"
   end
 
   private
@@ -48,6 +49,6 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:nickname, :song_part_id_1, :song_part_id_2)
+    params.require(:part).permit(:nickname, :song_part_id_1, :song_part_id_2).merge(user_id: current_user.id)
   end
 end

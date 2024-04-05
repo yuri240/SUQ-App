@@ -14,7 +14,6 @@
 |--------------------|------------|--------------------------------|
 | nickname           | string     | null: false                    |
 | song_part_id       | integer    | null: false                    |
-| song               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
