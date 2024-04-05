@@ -4,7 +4,7 @@
      <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>Parts</h2>
+      <h2>定期活動会参加者一覧</h2>
       <table class="table">
         <thead>
           <tr>
@@ -19,8 +19,7 @@
             <tr>
               <td><%= part.nickname %></td>
               <td><%= SongPart.find_by(id: part.song_part_id_1)&.name || '-' %></td>
-  <td><%= SongPart.find_by(id: part.song_part_id_2)&.name || '-' %></td>
-
+              <td><%= SongPart.find_by(id: part.song_part_id_2)&.name || '-' %></td>
             </tr>
           <% end %>
         </tbody>

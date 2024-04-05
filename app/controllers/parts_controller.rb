@@ -15,10 +15,30 @@ class PartsController < ApplicationController
   def create
     @part = Part.new(part_params)
     if @part.save
-      redirect_to parts_path, notice: "ニックネームと曲が登録されました"
+      redirect_to parts_path
     else
       render :new
     end
+  end
+
+  def edit
+    @part = Part.find(params[:id])
+  end
+
+  def update
+    @part = Part.find(params[:id])
+    if @part.update(part_params)
+      redirect_to parts_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @part = Part.find(params[:id])
+    @part.destroy
+    redirect_to parts_path
+    flash[:notice] = "ニックネームと曲が削除されました"
   end
 
   private
