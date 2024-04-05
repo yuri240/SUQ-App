@@ -34,19 +34,19 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2 justify-content-end">
+    <div class="col-md-2 justify-content-end" style="margin-top: 80px;">
       <!-- ボタンの表示 -->
       <div class="btn-group-vertical">
         <!-- 外部リンク -->
-        <a href="#" class="btn btn-primary mb-1">External Link</a>
-        <!-- カラム追加フォームへの遷移 -->
-        <%= link_to "Add Column Form", new_song_path, class: "btn btn-primary mb-1" %>
+        <a href="<%= ENV['GOOGLE_DRIVE_SCORE'] %>" class="btn btn-primary mb-1">楽譜</a>
         <!-- レコード追加フォームへの遷移 -->
-        <%= link_to "Add Record Form", new_part_path, class: "btn btn-primary mb-1" %>
+        <%= link_to "参加者登録", new_part_path, class: "btn btn-primary mb-1" %>
+        <!-- カラム追加フォームへの遷移 -->
+        <%= link_to "曲の追加・削除", new_song_path, class: "btn btn-secondary mb-1" %>
         <!-- テーブル情報を出力 -->
-        <button class="btn btn-primary mb-1">Output Table Info</button>
+        <button class="btn btn-secondary mb-1">バンドを分ける</button>
         <!-- カラムとレコードをリセット -->
-        <%= link_to "Reset Column & Row", reset_all_path, data: {turbo_method: :delete}, class: "btn btn-primary mb-1", id: "reset-data"%>
+        <%= link_to "曲と参加者のリセット", reset_all_path, data: {turbo_method: :delete}, class: "btn btn-danger mb-1", id: "reset-data"%>
       </div>
       <!-- ボタンの終了 -->
     </div>

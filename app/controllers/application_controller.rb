@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth
+  before_action :basic_auth, if: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def reset_all
@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   private
   def configure_permitted_parameters 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   def basic_auth
