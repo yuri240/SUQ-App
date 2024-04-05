@@ -46,7 +46,7 @@
         <!-- テーブル情報を出力 -->
         <button class="btn btn-primary mb-1">Output Table Info</button>
         <!-- カラムとレコードをリセット -->
-        <button class="btn btn-primary mb-1">Reset Column & Row</button>
+        <%= link_to "Reset Column & Row", reset_all_path, data: {turbo_method: :delete}, class: "btn btn-primary mb-1", id: "reset-data"%>
       </div>
       <!-- ボタンの終了 -->
     </div>

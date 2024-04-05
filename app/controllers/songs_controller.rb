@@ -26,7 +26,6 @@ class SongsController < ApplicationController
     redirect_to parts_path, notice: "曲名を削除しました"
   end
 
-  
   private
 
   def song_params

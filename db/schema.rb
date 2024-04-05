@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2024_04_04_024849) do
   create_table "parts", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.integer "song_part_id_1", null: false
+    t.integer "song_part_id_1"
     t.integer "song_part_id_2"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
